@@ -102,6 +102,7 @@ class UserController extends BaseController
     {
         $user = $request->user();
         $userTasks = $user->tasks;
+
         return $this->sendResponse(UserResource::collection($userTasks), 'Users retrieved successfully.');
     }
 }
