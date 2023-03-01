@@ -72,8 +72,7 @@ class CategoryController extends BaseController
         $input = $request->all();
 
         $validator = Validator::make($input, [
-            'name' => 'required',
-            'detail' => 'required'
+            'name' => 'required'
         ]);
 
         if($validator->fails()){
@@ -81,7 +80,6 @@ class CategoryController extends BaseController
         }
 
         $category->name = $input['name'];
-        $category->detail = $input['detail'];
         $category->save();
 
         return $this->sendResponse(new CategoryResource($category), 'Category updated successfully.');

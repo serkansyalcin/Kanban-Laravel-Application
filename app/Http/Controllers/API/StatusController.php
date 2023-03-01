@@ -72,8 +72,7 @@ class StatusController extends BaseController
         $input = $request->all();
 
         $validator = Validator::make($input, [
-            'name' => 'required',
-            'detail' => 'required'
+            'name' => 'required'
         ]);
 
         if($validator->fails()){
@@ -81,7 +80,6 @@ class StatusController extends BaseController
         }
 
         $status->name = $input['name'];
-        $status->detail = $input['detail'];
         $status->save();
 
         return $this->sendResponse(new StatusResource($status), 'Status updated successfully.');

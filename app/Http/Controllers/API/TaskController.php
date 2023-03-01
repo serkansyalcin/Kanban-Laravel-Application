@@ -114,10 +114,4 @@ class TaskController extends BaseController
 
         return $this->sendResponse([], 'Task deleted successfully.');
     }
-
-    public function userTasks(Request $request)
-    {
-        $tasks = User::tasks;
-        return $this->sendResponse(TaskResource::collection($tasks), 'Tasks retrieved successfully.');
-    }
 }
